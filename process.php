@@ -3,8 +3,9 @@ $paragraph = $_GET['paragraph'];
 $badWord = $_GET['badWord'];
 
 $originalLength = strlen($paragraph);
-$censoredParagraph = str_ireplace($badWord, '***', $paragraph);
-
+$wordCount = str_word_count($paragraph);
+$censoredParagraph = str_replace($badWord, '***', $paragraph);
+$censoredLength = strlen($censoredParagraph);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,18 +18,28 @@ $censoredParagraph = str_ireplace($badWord, '***', $paragraph);
 
 <body>
 
+
     <h2>Paragrafo originale:</h2>
     <p>
         <?php echo $paragraph ?>
     </p>
-
-
+    <p>Lunghezza:
+        <?php echo $originalLength ?>
+    </p>
+    <p>Conteggio parole:
+        <?php echo $wordCount ?>
+    </p>
 
     <h2>Paragrafo censurato:</h2>
     <p>
         <?php echo $censoredParagraph ?>
     </p>
-
+    <p>Lunghezza:
+        <?php echo $censoredLength ?>
+    </p>
+    <p>Conteggio parole:
+        <?php echo str_word_count($censoredParagraph) ?>
+    </p>
 </body>
 
 </html>
