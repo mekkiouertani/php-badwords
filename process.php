@@ -4,7 +4,7 @@ $badWord = $_GET['badWord'];
 
 $originalLength = strlen($paragraph);
 $wordCount = str_word_count($paragraph);
-$censoredParagraph = str_replace($badWord, '***', $paragraph);
+$censoredParagraph = str_replace($badWord, ' *** ', $paragraph);
 $censoredLength = strlen($censoredParagraph);
 ?>
 <!DOCTYPE html>
